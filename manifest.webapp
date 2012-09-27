@@ -1,0 +1,13 @@
+{
+  "name": "ABC",
+  "description": "Lär dig skriva och läsa med denna simpla app som läser upp bokstäverna du skriver.",
+  "launch_path": "/",
+  "icons": {
+    "128": "/icons/icon-128.png"
+  },
+  "developer": {
+    "name": "Johan Larsson",
+    "url": "http://johanl.se"
+  },
+  "default_locale": "sv"
+}
