@@ -1,4 +1,17 @@
 CACHE MANIFEST
 
 CACHE:
-/index.html
+index.html
+audio/m4a/a.m4a
+audio/m4a/b.m4a
+audio/m4a/c.m4a
+images/noisy_grid_@2X.png
+javascripts/app.js
+javascripts/BufferLoader.js
+javascripts/foundation.min.js
+javascripts/jquery.js
+javascripts/modernizr.foundation.js
+stylesheets/app.css
+stylesheets/foundation.css
+stylesheets/foundation.min.css
+
