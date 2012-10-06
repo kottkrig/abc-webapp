@@ -19,13 +19,19 @@ html, body, .row, .twelve.columns {
 
 h1 {
 	font-family: 'Walter Turncoat', cursive;
+	display: inline;
+}
+
+h4 {
+	display: inline;
+	font-size: 1.2em;
+	margin-left:0.2em;
 }
 
 body {
 	background:url(../images/noisy_grid_@2X.png);
 	background-size: 150px 150px;
 }
-
 
 textarea {
 	opacity:0;
@@ -39,7 +45,7 @@ textarea {
 
 #currentLetter {
 	position:relative;
-	top:-0.2em;
+	top:-0.1em;
 	font-size: 250pt;
 	text-align: center;
 	text-shadow:0 2px 3px rgba(255,255,255,0.9);
