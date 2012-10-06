@@ -12,7 +12,7 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-html, body, .row, .twelve.columns {
+html, body, .row {
 	height: 100%;
 	font-family: 'Walter Turncoat', cursive;
 }
@@ -34,13 +34,13 @@ body {
 }
 
 textarea {
-	opacity:0;
+	opacity:1;
 	position:fixed;
 	z-index:-1000;
 	height:0;
 	width: 0;
 	top:0;
-	left:0;
+	left:-500px;
 }
 
 #currentLetter {

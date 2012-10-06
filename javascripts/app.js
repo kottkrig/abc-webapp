@@ -11,7 +11,10 @@ function init() {
 
   initAudioContext();
 
-  loadSounds();
+  if (context) {
+    loadSounds();
+  }
+  
 
   // Hide address bar on mobile devices
   if (Modernizr.touch) {
@@ -19,23 +22,33 @@ function init() {
       setTimeout(function () {
         window.scrollTo(0, 1);
       }, 0);
+
     });
+    showKeyboardButton();
   }
 
-  $doc.click(function() {
+  $("body").click(function() {
+    console.log("document.body clicked!");
     $("#textInputArea").focus();
-  })
+  });
+}
+
+function showKeyboardButton() {
+
+  var $keyboardButton = $("<button id='showKeyboardButton' class='large button'>Visa tangentbord</button>");
+  $('.row').append($keyboardButton);
+
+  $keyboardButton.click(function() {
+    console.log("showKeyboardButton clicked!");
+    $("#textInputArea").focus();
+    $keyboardButton.remove();
+  });
 }
 
 function initAudioContext() {
-  if (typeof AudioContext == "function") {
-    context = new AudioContext();
-  } else if (typeof webkitAudioContext == "function") {
-    context = new webkitAudioContext();
-  } else if (typeof mozAudioContext == "function") {
-    context = new mozAudioContext();
-  } else {
-    throw new Error('AudioContext not supported. :(');
+  context = new webkitAudioContext();
+  if (!context) {
+    console.log('AudioContext not supported. :(');
   }
 }
 
@@ -44,8 +57,7 @@ function loadSounds() {
   var bufferLoader;
 
   for (var i = 0; i < letters.length; i++) {
-    var url = Modernizr.audio.ogg ? 'audio/ogg/'+letters[i]+'.ogg' :
-                'audio/m4a/'+letters[i]+'.m4a';
+    var url = 'audio/m4a/'+letters[i]+'.m4a';
     urls[i] = url;
   };
 
