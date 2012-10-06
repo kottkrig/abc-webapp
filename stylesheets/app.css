@@ -14,10 +14,34 @@
 ----------------------------------------- */
 html, body, .row, .twelve.columns {
 	height: 100%;
+	font-family: 'Walter Turncoat', cursive;
 }
 
+h1 {
+	font-family: 'Walter Turncoat', cursive;
+}
+
+body {
+	background:url(../images/noisy_grid_@2X.png);
+	background-size: 150px 150px;
+}
+
+
 textarea {
-	height:80%;
+	opacity:0;
+	position:fixed;
+	z-index:-1000;
+	height:0;
+	width: 0;
+	top:0;
+	left:0;
+}
+
+#currentLetter {
+	position:relative;
+	top:-0.2em;
+	font-size: 250pt;
+	text-align: center;
 }
 
 

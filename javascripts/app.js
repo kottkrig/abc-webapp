@@ -21,6 +21,10 @@ function init() {
       }, 0);
     });
   }
+
+  $doc.click(function() {
+    $("#textInputArea").focus();
+  })
 }
 
 function initAudioContext() {
@@ -56,11 +60,14 @@ function finishedLoading(bufferList) {
   };
 
   $("#textInputArea").keypress(function(event) {
+
     var letter = String.fromCharCode(event.charCode).toLowerCase();
     if (buffers[letter]) {
       playSound(buffers[letter]);
     }
-    
+
+    $(this).val("");
+    showLetter(letter);
   });
 }
 
@@ -69,4 +76,12 @@ function playSound(buffer) {
   source.buffer = buffer;                    // tell the source which sound to play
   source.connect(context.destination);       // connect the source to the context's destination (the speakers)
   source.noteOn(0);    
+}
+
+function showLetter(letter) {
+  var randomColor = 'rgba(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ', 0.85)';
+  
+  $currentLetter = $("#currentLetter");
+  $currentLetter.text(letter);
+  $currentLetter.css("color", randomColor);
 }
