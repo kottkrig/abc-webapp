@@ -91,9 +91,18 @@ function playSound(buffer) {
 }
 
 function showLetter(letter) {
-  var randomColor = 'rgba(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ', 0.85)';
+
+  var r = Math.floor(Math.random() * 256);
+  var g = Math.floor(Math.random() * 256);
+  var b = Math.floor(Math.random() * 256);
+
+  var randomColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+  var textShadow = "0 3px 0 rgb("+(r-20)+","+(g-20)+","+(b-20)+"), 2px 4px 1px rgba(0,0,0,0.2)"
+  var randomRotation = "rotate("+(Math.floor(Math.random() * 12 - 6))+"deg)";
   
   $currentLetter = $("#currentLetter");
-  $currentLetter.text(letter);
-  $currentLetter.css("color", randomColor);
+  $currentLetter.text(letter.toUpperCase());
+  $currentLetter.css({"color": randomColor,
+                      "text-shadow": textShadow,
+                      "transform": randomRotation});
 }

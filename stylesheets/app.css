@@ -14,12 +14,27 @@
 ----------------------------------------- */
 html, body, .row {
 	height: 100%;
-	font-family: 'Walter Turncoat', cursive;
+	font-family: 'Helvetica', cursive;
 }
 
 h1 {
-	font-family: 'Walter Turncoat', cursive;
+	font-family: 'Ubuntu', 'Droid Sans', sans-serif;
 	display: inline;
+}
+
+h1 .A {
+	color:#417FCF;
+	text-shadow:#2D6BBB 1px 1px 0px;
+}
+
+h1 .B {
+	color:#A741DB;
+	text-shadow:#932DC7 1px 1px 0px;
+}
+
+h1 .C {
+	color:#38D450;
+	text-shadow:#24C03C 1px 1px 0px;
 }
 
 h4 {
@@ -29,8 +44,17 @@ h4 {
 }
 
 body {
-	background:url(../images/noisy_grid_@2X.png);
-	background-size: 150px 150px;
+	background:url(../images/first_aid_kit_@2X.png);
+	background-size: 99px 99px;
+}
+
+footer {
+	background-color:rgba(255, 255, 255, 0.95);
+	box-shadow: 0 -1px 1px #ccc;
+	z-index: 10000;
+	position:absolute;
+	width:100%;
+	bottom:0;
 }
 
 textarea {
@@ -44,11 +68,21 @@ textarea {
 }
 
 #currentLetter {
+	font-family: 'Ubuntu', 'Droid Sans', sans-serif;
+	font-weight: bold;
 	position:relative;
-	top:-0.1em;
+	top:0.2em;
 	font-size: 250pt;
 	text-align: center;
-	text-shadow:0 2px 3px rgba(255,255,255,0.9);
+	z-index:-10;
+
+	-webkit-transform-origin:50% 50%;
+
+	-webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
 }
 
 
