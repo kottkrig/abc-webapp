@@ -92,9 +92,9 @@ function playSound(buffer) {
 
 function showLetter(letter) {
 
-  var r = Math.floor(Math.random() * 256);
-  var g = Math.floor(Math.random() * 256);
-  var b = Math.floor(Math.random() * 256);
+  var r = Math.floor((Math.random() * 256 + 255) / 2);
+  var g = Math.floor((Math.random() * 256 + 255) / 2);
+  var b = Math.floor((Math.random() * 256 + 255) / 2);
 
   var randomColor = 'rgb(' + r + ',' + g + ',' + b + ')';
   var textShadow = "0 3px 0 rgb("+(r-20)+","+(g-20)+","+(b-20)+"), 2px 4px 1px rgba(0,0,0,0.2)"
