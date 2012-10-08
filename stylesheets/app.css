@@ -17,6 +17,10 @@ html, body, .row {
 	font-family: 'Helvetica', cursive;
 }
 
+body {
+	overflow:hidden;
+}
+
 h1 {
 	font-family: 'Ubuntu', 'Droid Sans', sans-serif;
 	display: inline;
