@@ -17,6 +17,10 @@ html, body, .row {
 	font-family: 'Helvetica', cursive;
 }
 
+body {
+	overflow: hidden;
+}
+
 h1 {
 	font-family: 'Ubuntu', 'Droid Sans', sans-serif;
 	display: inline;
@@ -68,7 +72,7 @@ textarea {
 }
 
 #currentLetter {
-	font-family: 'Ubuntu', 'Droid Sans', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-weight: bold;
 	position:relative;
 	top:0.2em;
@@ -77,6 +81,10 @@ textarea {
 	z-index:-10;
 
 	-webkit-transform-origin:50% 50%;
+	-moz-transform-origin:50% 50%;
+	-o-transform-origin:50% 50%;
+	-ms-transform-origin:50% 50%;
+	transform-origin:50% 50%;
 
 	-webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
