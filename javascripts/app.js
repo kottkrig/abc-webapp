@@ -1,20 +1,13 @@
 window.onload = init;
 
-var context;
-var bufferLoader;
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var soundManager;
 
 function init() {
 
   var $doc = $(document),
       Modernizr = window.Modernizr;
 
-  initAudioContext();
-
-  if (context) {
-    loadSounds();
-  }
-  
+  soundManager = new SoundManager(soundManagerReady);
 
   // Hide address bar on mobile devices
   if (Modernizr.touch) {
@@ -33,6 +26,17 @@ function init() {
   });
 }
 
+function soundManagerReady() {
+  $("#textInputArea").keypress(function(event) {
+
+    var letter = String.fromCharCode(event.charCode).toLowerCase();
+
+    $(this).val("");
+    showLetter(letter);
+    soundManager.playLetter(letter);
+  });
+}
+
 function showKeyboardButton() {
 
   var $keyboardButton = $("<button id='showKeyboardButton' class='large button'>Visa tangentbord</button>");
@@ -43,51 +47,6 @@ function showKeyboardButton() {
     $("#textInputArea").focus();
     $keyboardButton.remove();
   });
-}
-
-function initAudioContext() {
-  context = new webkitAudioContext();
-  if (!context) {
-    console.log('AudioContext not supported. :(');
-  }
-}
-
-function loadSounds() {
-  var urls = new Array(letters.length);
-  var bufferLoader;
-
-  for (var i = 0; i < letters.length; i++) {
-    var url = 'audio/m4a/'+letters[i]+'.m4a';
-    urls[i] = url;
-  };
-
-  bufferLoader = new BufferLoader(context, urls, finishedLoading);
-  bufferLoader.load();
-}
-
-function finishedLoading(bufferList) {
-  var buffers = {};
-  for (var i = 0; i < letters.length; i++) {
-    buffers[letters[i]] = bufferList[i];
-  };
-
-  $("#textInputArea").keypress(function(event) {
-
-    var letter = String.fromCharCode(event.charCode).toLowerCase();
-    if (buffers[letter]) {
-      playSound(buffers[letter]);
-    }
-
-    $(this).val("");
-    showLetter(letter);
-  });
-}
-
-function playSound(buffer) {
-  var source = context.createBufferSource(); // creates a sound source
-  source.buffer = buffer;                    // tell the source which sound to play
-  source.connect(context.destination);       // connect the source to the context's destination (the speakers)
-  source.noteOn(0);    
 }
 
 function showLetter(letter) {
