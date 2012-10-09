@@ -4,9 +4,11 @@ function SoundManager(callback) {
   this.buffers = {};
   this.callback = callback;
 
-  if (typeof AudioContext === "function") {
+
+
+  if ('AudioContext' in window) {
       this.context = new AudioContext();
-  } else if (typeof webkitAudioContext === "function") {
+  } else if ('webkitAudioContext' in window) {
       this.context = new webkitAudioContext();
   } else {
       console.log('AudioContext not supported. :(');
