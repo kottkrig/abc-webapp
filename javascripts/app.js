@@ -9,20 +9,56 @@ function init() {
 
   soundManager = new SoundManager(soundManagerReady);
 
+  
+
   // Hide address bar on mobile devices
   if (Modernizr.touch) {
     $(window).load(function () {
       setTimeout(function () {
         window.scrollTo(0, 1);
       }, 0);
-
     });
-    showKeyboardButton();
-  }
 
-  $("body").click(function() {
-    console.log("document.body clicked!");
-    $("#textInputArea").focus();
+    initVirtualKeyboard();
+  } else {
+    $("body").click(function() {
+      console.log("document.body clicked!");
+      $("#textInputArea").focus();
+    });
+
+    adjustLetterSize();
+  }
+}
+
+function adjustLetterSize() {
+  var footerYPosition = $("footer").position().top;
+
+  $("#currentLetter").css("font-size", footerYPosition*0.8+"px");
+
+  console.log(footerYPosition);
+
+  $("#letterContainer").height(footerYPosition);
+}
+
+function initVirtualKeyboard() {
+
+  $("#keyboardContainer").css("display", "inline");
+
+  var keyboardYPosition = $("#keyboardContainer").position().top;
+
+  $("#currentLetter").css("font-size", keyboardYPosition*0.8+"px");
+
+  console.log(keyboardYPosition);
+
+  $("#letterContainer").height(keyboardYPosition);
+
+  $('#keyboard li').fastClick(function(){
+    var $this = $(this),
+      character = $this.html(); // If it's a lowercase letter, nothing happens to this variable
+    
+    console.log("Virtual keyboard clicked: "+character);
+    showLetter(character);
+    soundManager.playLetter(character);
   });
 }
 
