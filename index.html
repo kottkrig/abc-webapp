@@ -29,6 +29,63 @@
 
 </head>
 <body>
+  <div id="container">
+    <div id="letterContainer">
+      <div id="currentLetter"></div>
+    </div>
+    
+    <textarea id="textInputArea" placeholder="Skriv här…" autofocus></textarea>
+
+    <div id="keyboardContainer">
+      <ul id="keyboard">
+        <li class="symbol hidden"></li>
+        <li class="letter">1</li>
+        <li class="letter">2</li>
+        <li class="letter">3</li>
+        <li class="letter">4</li>
+        <li class="letter">5</li>
+        <li class="letter">6</li>
+        <li class="letter">7</li>
+        <li class="letter">8</li>
+        <li class="letter">9</li>
+        <li class="letter lastitem">0</li>
+        <li class="tab hidden"></li>
+        <li class="letter">q</li>
+        <li class="letter">w</li>
+        <li class="letter">e</li>
+        <li class="letter">r</li>
+        <li class="letter">t</li>
+        <li class="letter">y</li>
+        <li class="letter">u</li>
+        <li class="letter">i</li>
+        <li class="letter">o</li>
+        <li class="letter">p</li>
+        <li class="letter lastitem">å</li>
+        <li class="capslock hidden"></li>
+        <li class="letter">a</li>
+        <li class="letter">s</li>
+        <li class="letter">d</li>
+        <li class="letter">f</li>
+        <li class="letter">g</li>
+        <li class="letter">h</li>
+        <li class="letter">j</li>
+        <li class="letter">k</li>
+        <li class="letter">l</li>
+        <li class="letter">ö</li>
+        <li class="letter lastitem">ä</li>
+        <li class="left-shift hidden"></li>
+        <li class="letter">z</li>
+        <li class="letter">x</li>
+        <li class="letter">c</li>
+        <li class="letter">v</li>
+        <li class="letter">b</li>
+        <li class="letter">n</li>
+        <li class="letter">m</li>
+      </ul>
+    </div>
+  </div>
+
+
   <footer>
     <div class="row">
       <div class="twelve columns">
@@ -37,17 +94,18 @@
       </div>
     </div>
   </footer>
-  <div id="currentLetter"></div>
-  <textarea id="textInputArea" placeholder="Skriv här…" autofocus></textarea>
   
   
   <!-- Included JS Files (Compressed) -->
   <script src="javascripts/jquery.js"></script>
   <script src="javascripts/foundation.min.js"></script>
-  
+
+  <script src="javascripts/jQuery.fastClick.js"></script>
+    
   <!-- Initialize JS Plugins -->
   <script src="javascripts/BufferLoader.js"></script>
   <script src="javascripts/SoundManager.js"></script>
+
   <script src="javascripts/app.js"></script>
 </body>
 </html>
